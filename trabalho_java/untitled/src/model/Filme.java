@@ -1,5 +1,12 @@
 package model;
 
+//A classe Filme armazena e gerencia seus próprios dados, sendo a especialista em fornecer informações sobre si mesma.
+//Isso segue o princípio GRASP de Information Expert, pois a responsabilidade fica com a classe que realmente possui os dados.
+
+
+//Low Coupling + High Cohesion: baixo acoplamento e alta coesão, pois é independente e 
+//possui apenas responsabilidades internas ao seu próprio domínio
+
 public class Filme {
     private int id;
     private String titulo;
@@ -7,7 +14,7 @@ public class Filme {
     private int ano;
     private int duracao;
 
-    // Construtor
+    // Construtor: GRASP: Creator – o próprio Modelo cria seus objetos corretamente.
     public Filme(int id, String titulo, String genero, int ano, int duracao) {
         this.id = id;
         this.titulo = titulo;
@@ -16,7 +23,7 @@ public class Filme {
         this.duracao = duracao;
     }
 
-    // Getters e Setters
+    // Getters e Setters: (alta coesão – classe só cuida dos seus próprios dados)
     public int getId() {
         return id;
     }
@@ -63,3 +70,4 @@ public class Filme {
                 ", ano=" + ano + ", duração=" + duracao + " min]";
     }
 }
+
