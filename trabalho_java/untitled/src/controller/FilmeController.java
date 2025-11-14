@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Filme;
 
+ // GRASP: Controller – esta classe atua como o controlador das operações de filmes.
+    // Alta Coesão – inicializa apenas sua própria estrutura interna.
 public class FilmeController {
     private List<Filme> filmes;
 
@@ -31,12 +33,16 @@ public class FilmeController {
         return false;
     }
 
-    // Remover um filme pelo ID
+      // GRASP: Controller – centraliza a ação de remoção.
+    // Baixo acoplamento – a lógica está dentro do controller, sem chamar outras camadas.
+    
     public boolean removerFilme(int id) {
         return filmes.removeIf(f -> f.getId() == id);
     }
 
-    // Listar todos os filmes
+    // GRASP: Information Expert – o controller conhece a lista e sabe localizar o filme certo.
+    // Low Coupling – apenas acessa o filme, não depende de outra classe ou serviço.
+    
     public List<Filme> listarFilmes() {
         return filmes;
     }
@@ -51,3 +57,4 @@ public class FilmeController {
         return null;
     }
 }
+
